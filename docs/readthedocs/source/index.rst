@@ -82,6 +82,7 @@ BigDL Documentation
    doc/Chronos/Overview/deep_dive.rst
    doc/Chronos/QuickStart/index.md
    doc/Chronos/Overview/chronos_known_issue.md
+   ./../../../python/chronos/use-case/network_traffic/network_traffic_multivariate_multistep_tcnforecaster
 
 .. toctree::
    :maxdepth: 1
