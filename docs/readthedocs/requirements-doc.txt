@@ -35,3 +35,4 @@ sphinx-tabs==3.4
 optuna==2.10.0
 ConfigSpace==0.5.0
 nbsphinx==0.8.9
+ipython_genutils==0.2.0
