@@ -13,7 +13,6 @@ BigDL Documentation
 * `Nano <doc/Nano/Overview/nano.html>`_: automatically accelerate TensorFlow and PyTorch pipelines by applying modern CPU optimizations
 -------
 
-.. include:: ../../../python/chronos/use-case/network_traffic/network_traffic_multivariate_multistep_tcnforecaster.ipynb
 .. meta::
    :google-site-verification: hG9ocvSRSRTY5z8g6RLn97_tdJvYRx_tVGhNdtZZavM
 
@@ -82,7 +81,7 @@ BigDL Documentation
    doc/Chronos/Overview/deep_dive.rst
    doc/Chronos/QuickStart/index.md
    doc/Chronos/Overview/chronos_known_issue.md
-   ./../../../python/chronos/use-case/network_traffic/network_traffic_multivariate_multistep_tcnforecaster
+   doc/Chronos/use-case/network_traffic/network_traffic_multivariate_multistep_tcnforecaster
 
 .. toctree::
    :maxdepth: 1
