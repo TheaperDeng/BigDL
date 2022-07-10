@@ -90,7 +90,7 @@ extensions = [
     'recommonmark',
     'sphinx_markdown_tables',
     'sphinx_tabs.tabs',
-    'myst_nb',
+    'nbsphinx',
 ]
 
 
