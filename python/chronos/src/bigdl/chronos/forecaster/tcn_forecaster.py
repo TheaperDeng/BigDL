@@ -52,6 +52,7 @@ class TCNForecaster(BasePytorchForecaster):
                  loss="mse",
                  lr=0.001,
                  metrics=["mse"],
+                 scaler=None,
                  seed=None,
                  distributed=False,
                  workers_per_node=1,
@@ -142,6 +143,7 @@ class TCNForecaster(BasePytorchForecaster):
         # other settings
         self.lr = lr
         self.metrics = metrics
+        self.scaler = scaler
         self.seed = seed
 
         # nano setting

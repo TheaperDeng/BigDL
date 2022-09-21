@@ -679,6 +679,7 @@ class TSDataset:
         scaler_index = [self.target_col.index(self.roll_target[i])
                         for i in range(num_roll_target)] * repeat_factor
         self.scaler_index = scaler_index
+        self.scaler.scaler_index = self.scaler_index
 
         return self
 
@@ -772,6 +773,7 @@ class TSDataset:
 
             # set scaler index for unscale_numpy
             self.scaler_index = [self.target_col.index(t) for t in target_col]
+            self.scaler.scaler_index = self.scaler_index
             self.lookback, self.horizon, self.label_len = lookback, horizon, label_len
 
             if self.lookback == 'auto':

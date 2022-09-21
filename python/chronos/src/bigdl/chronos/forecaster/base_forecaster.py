@@ -17,6 +17,7 @@
 from bigdl.chronos.forecaster.abstract import Forecaster
 from bigdl.chronos.forecaster.utils import *
 from bigdl.chronos.metric.forecast_metrics import Evaluator
+from bigdl.chronos.data.utils.scale import unscale_timeseries_numpy
 
 import numpy as np
 import warnings
@@ -508,6 +509,10 @@ class BasePytorchForecaster(Forecaster):
                                                   batch_size=batch_size)
             if not is_local_data:
                 yhat = np_to_xshard(yhat, prefix="prediction")
+
+            if self.scaler:
+                yhat = unscale_timeseries_numpy(yhat, self.scaler, self.scaler.scaler_index)
+
             return yhat
 
     def predict_with_onnx(self, data, batch_size=32, quantize=False):
