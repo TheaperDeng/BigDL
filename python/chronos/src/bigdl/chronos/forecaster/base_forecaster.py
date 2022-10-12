@@ -203,9 +203,9 @@ class BasePytorchForecaster(Forecaster):
 
         if self.tune_trainer.hposearcher.objective.mo_hpo:
             return self.internal
-        else:
+        # else:
             # reset train and validation datasets
-            self.tune_trainer.reset_train_val_dataloaders(self.internal)
+            # self.tune_trainer.reset_train_val_dataloaders(self.internal)
 
     def search_summary(self):
         # add tuning check

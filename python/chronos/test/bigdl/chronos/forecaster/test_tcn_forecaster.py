@@ -681,3 +681,24 @@ class TestChronosModelTCNForecaster(TestCase):
             forecaster.load(ckpt_name)
             test_pred_load = forecaster.predict(test_data[0])
         np.testing.assert_almost_equal(test_pred_save, test_pred_load)
+
+    def test_tcn_forecaster_tune_multi_processes(self):
+        name = "parallel-example-torch"
+        storage = "sqlite:///example_tcn.db"  # take sqlite for test, recommand to use mysql
+        import bigdl.nano.automl.hpo.space as space
+        train_data, val_data, _ = create_data(loader=False)
+        forecaster = TCNForecaster(past_seq_len=24,
+                                future_seq_len=5,
+                                input_feature_num=1,
+                                output_feature_num=1,
+                                kernel_size=4,
+                                num_channels=[16, 16],
+                                loss="mae",
+                                metrics=['mae', 'mse', 'mape'],
+                                lr=space.Real(0.001, 0.01, log=True))
+        forecaster.tune(train_data, validation_data=val_data,
+                        n_trials=2, target_metric='mse', direction="minimize",
+                        study_name=name,
+                        storage=storage, n_parallels=2)
+        forecaster.fit(train_data, epochs=2)
+        os.remove("./example_tcn.db")

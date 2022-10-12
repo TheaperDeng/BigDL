@@ -288,9 +288,9 @@ class AutoformerForecaster(Forecaster):
 
         if self.trainer.hposearcher.objective.mo_hpo:
             return self.internal
-        else:
+        # else:
             # reset train and validation datasets
-            self.trainer.reset_train_val_dataloaders(self.internal)
+            # self.trainer.reset_train_val_dataloaders(self.internal)
 
     def search_summary(self):
         # add tuning check
